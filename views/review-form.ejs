@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Write a Review | Campus Bites</title>
-  <link rel="stylesheet" href="/Content/app.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Write a Review | Campus Bites</title>
+    <link rel="stylesheet" href="/Content/app.css">
 </head>
+
 <body>
-  <main>
-    <h1>Write a Review</h1>
+    <main>
+        <h1>Write a Review</h1>
+        <% if (error) { %>
+            <p>
+                <%= error %>
+            </p>
+            <% } %>
 
-    <form action="/reviews" method="post">
-      <p>
-        <label for="restaurant">Restaurant name</label>
-        <input type="text" id="restaurant" name="restaurant" required>
-      </p>
 
-      <p>
-        <label for="dish">Dish</label>
-        <input type="text" id="dish" name="dish" required>
-      </p>
 
-      <p>
-        <label for="price">Price paid (CAD)</label>
-        <input type="text" id="price" name="price" required>
-      </p>
+                <form action="/reviews" method="post">
+                    <p>
+                        <label for="restaurant">Restaurant name</label>
+                        <input type="text" id="restaurant" name="restaurant" required>
+                    </p>
 
-      <p>
-        <label for="rating">Rating out of 5</label>
-        <select id="rating" name="rating" required>
-          <option value="">Choose a rating</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </p>
+                    <p>
+                        <label for="dish">Dish</label>
+                        <input type="text" id="dish" name="dish" required>
+                    </p>
 
-      <p>
-        <label for="comment">Write your thoughts</label>
-        <textarea id="comment" name="comment" required></textarea>
-      </p>
+                    <p>
+                        <label for="price">Price paid (CAD)</label>
+                        <input type="text" id="price" name="price" required>
+                    </p>
 
-      <input type="submit" value="Submit Review">
-    </form>
-  </main>
+                    <p>
+                        <label for="rating">Rating out of 5</label>
+                        <select id="rating" name="rating" required>
+                            <option value="">Choose a rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="comment">Write your thoughts</label>
+                        <textarea id="comment" name="comment" required></textarea>
+                    </p>
+
+                    <input type="submit" value="Submit Review">
+                </form>
+    </main>
 </body>
+
 </html>
