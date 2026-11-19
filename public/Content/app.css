@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fffaf5;
+  color: #202034;
+  margin: 16px;
+}
+
+button {
+  padding: 8px 12px;
+}
+
+table {
+  width: 100%;
+  background-color: white;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid #e0d6ce;
+}
+
+th {
+  background-color: #ffe4d6;
+}
