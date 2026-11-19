@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Bites</title>
+</head>
+<body>
+  <header>
+    <img
+      src="/Asset/images/campus-bites-logo.png"
+      alt="Campus Bites logo"
+      width="180"
+    >
+  </header>
+
+  <main>
+    <h1>Campus Bites</h1>
+    <p>Find affordable meals near campus and see what other students recommend.</p>
+    <button type="button">Write a Review</button>
+
+    <section>
+      <h2>Latest Reviews</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Dish</th>
+            <th scope="col">Price</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= review.restaurant %></td>
+            <td><%= review.dish %></td>
+            <td><%= review.price %></td>
+            <td><%= review.rating %> / 5</td>
+            <td><%= review.comment %></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
