@@ -21,6 +21,10 @@ app.get("/", function (req, res) {
   res.render("index", { review: review });
 });
 
+app.get("/reviews/new", function (req, res) {
+  res.render("review-form");
+});
+
 app.listen(port, function () {
   console.log(`Campus Bites is running at http://localhost:${port}`);
 });
