@@ -65,4 +65,72 @@ router.post('/reviews', async function(req, res, next) {
   }
 });
 
+// Edit a saved review: load existing values into the edit form.
+router.get('/reviews/:id/edit', async function(req, res, next) {
+  try {
+    if (!Review.db.base.isValidObjectId(req.params.id)) return res.sendStatus(404);
+    const review = await Review.findById(req.params.id);
+    if (!review) return res.sendStatus(404);
+    res.render('review-edit', { review, error: '' });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Save an edited review with the same validation rules as creating one.
+router.post('/reviews/:id/edit', async function(req, res, next) {
+  try {
+    if (!Review.db.base.isValidObjectId(req.params.id)) return res.sendStatus(404);
+    const savedReview = await Review.findById(req.params.id);
+    if (!savedReview) return res.sendStatus(404);
+
+    const input = req.body || {};
+    const fields = ['restaurant', 'dish', 'price', 'rating', 'comment'];
+    let error = '';
+    for (const field of fields) {
+      if (typeof input[field] !== 'string' || input[field].trim() === '') {
+        error = 'Please fill in all five fields.';
+        break;
+      }
+    }
+
+    if (!error && !['1', '2', '3', '4', '5'].includes(input.rating)) {
+      error = 'Choose a whole-number rating from 1 to 5.';
+    }
+    const price = Number(input.price);
+    if (!error && (!Number.isFinite(price) || price < 0)) {
+      error = 'Enter a valid price of $0 or more.';
+    }
+
+    if (error) {
+      return res.status(400).render('review-edit', {
+        review: { _id: savedReview._id, ...input },
+        error
+      });
+    }
+
+    savedReview.restaurant = input.restaurant.trim();
+    savedReview.dish = input.dish.trim();
+    savedReview.price = price;
+    savedReview.rating = Number(input.rating);
+    savedReview.comment = input.comment.trim();
+    await savedReview.save();
+    res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Delete only the selected review and return to the homepage.
+router.post('/reviews/:id/delete', async function(req, res, next) {
+  try {
+    if (!Review.db.base.isValidObjectId(req.params.id)) return res.sendStatus(404);
+    const deletedReview = await Review.findByIdAndDelete(req.params.id);
+    if (!deletedReview) return res.sendStatus(404);
+    res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

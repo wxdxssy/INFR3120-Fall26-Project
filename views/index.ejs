@@ -34,6 +34,7 @@
               <th scope="col">Price</th>
               <th scope="col">Rating</th>
               <th scope="col">Review</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +45,12 @@
                 <td><%= review.price %></td>
                 <td><%= review.rating %> / 5</td>
                 <td><%= review.comment %></td>
+                <td>
+                  <a href="/reviews/<%= review._id %>/edit">Edit</a>
+                  <form action="/reviews/<%= review._id %>/delete" method="post" style="display:inline" onsubmit="return confirm('Delete this review?');">
+                    <button type="submit">Delete</button>
+                  </form>
+                </td>
               </tr>
             <% }); %>
           </tbody>
