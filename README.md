@@ -54,6 +54,11 @@ Hamza: MongoDB model, persistence, review retrieval, ordering, empty-state handl
 
 ## Code Sources and Acknowledgments
 
-Course materials: INFR3120U lecture examples and tutorials, where applicable.
+Course Materials:
+- INFR3120U Web and Scripting Programming lecture examples
+  and tutorials covering Express, EJS, MongoDB, and CRUD
+  operations.
 
-Third-party and AI-assisted code: Any code not written independently or adapted from course materials must be accurately identified and cited here, with the source, author or tool, and relevant files, in accordance with the assignment requirements.
+Development Assistance:
+- OpenAI ChatGPT was used to assist with debugging,
+  reviewing code, and Git integration
