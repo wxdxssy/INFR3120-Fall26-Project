@@ -23,26 +23,32 @@
     <section>
       <h2>Latest Reviews</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Restaurant</th>
-            <th scope="col">Dish</th>
-            <th scope="col">Price</th>
-            <th scope="col">Rating</th>
-            <th scope="col">Review</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= review.restaurant %></td>
-            <td><%= review.dish %></td>
-            <td><%= review.price %></td>
-            <td><%= review.rating %> / 5</td>
-            <td><%= review.comment %></td>
-          </tr>
-        </tbody>
-      </table>
+      <% if (reviews.length === 0) { %>
+        <p>No reviews yet. Be the first to write one!</p>
+      <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Restaurant</th>
+              <th scope="col">Dish</th>
+              <th scope="col">Price</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% reviews.forEach(function(review) { %>
+              <tr>
+                <td><%= review.restaurant %></td>
+                <td><%= review.dish %></td>
+                <td><%= review.price %></td>
+                <td><%= review.rating %> / 5</td>
+                <td><%= review.comment %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } %>
     </section>
   </main>
 </body>

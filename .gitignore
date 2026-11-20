@@ -1,1 +1,11 @@
 node_modules/
+.env
+.env.*
+!.env.example
+
+# Local AI tool configuration
+.claude/
+
+# Private environment files
+.env*
+!.env.example

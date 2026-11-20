@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +20,13 @@
   },
   "homepage": "https://github.com/wxdxssy/NFR3120-Fall26-Project#readme",
   "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^18.0.10",
     "ejs": "^7.0.2",
-    "express": "^4.22.3"
+    "express": "^4.22.3",
+    "http-errors": "~2.0.0",
+    "mongoose": "^9.12.2",
+    "morgan": "~1.12.1"
   }
 }
